@@ -10,12 +10,12 @@
 |message_id |integer    |---        |
 
 ##messages table
-|column     |type       |option|
-|:---------:|:---------:|:---------:|
-|user_id    |integer    |---        |
+|column     |type       |option          |
+|:---------:|:---------:|:--------------:|
+|user_id    |integer    |---             |
 |body       |text       |NOT NULL,index  |
-|image      |text       |        ---|
-|group_id   |integer    |        ---|
+|image      |text       |        ---     |
+|group_id   |integer    |        ---     |
 
 
 
