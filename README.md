@@ -1,6 +1,9 @@
-#データベース設計
 
-##users table
+
+# データベース設計
+
+## users
+
 |column     |    type   |option     |
 |:--------- |:--------- |:--------- |
 |name       |string     |NOT NULL   |
@@ -9,7 +12,8 @@
 |group_id   |integer    |---        |
 |message_id |integer    |---        |
 
-##messages table
+## messages table
+
 |column     |type       |option          |
 |:--------- |:--------- |:-------------- |
 |user_id    |integer    |---             |
@@ -19,7 +23,8 @@
 
 
 
-##groups table
+## groups table
+
 |column     |type       |option     |
 |:--------- |:--------- |:--------- |
 |name       |string     |---        |
@@ -27,8 +32,9 @@
 |message_id |integer    |---        |
 
 
-##users_groups table
+## users_groups table
+
 |column     |type       |option     |
 |:--------- |:--------- |:--------- |
 |user_id    |integer    |---        |
-|group_id   |integer    |---        |
+|group_id   |integer    | ---       |
