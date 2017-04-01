@@ -7,7 +7,7 @@
 |column     |    type   |option     |
 |:--------- |:--------- |:--------- |
 |name       |string     |NOT NULL   |
-|mail_adress|text       |NOT NULL   |
+|mail_address|text       |NOT NULL   |
 |password   |text       |NOT NULL   |
 |group_id   |integer    |---        |
 |message_id |integer    |---        |
