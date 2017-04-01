@@ -1,28 +1,34 @@
-== README
+#データベース設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##users table
+|column     |    type   |option     |
+|:--------- |:--------- |:--------- |
+|name       |string     |NOT NULL   |
+|mail_adress|text       |NOT NULL   |
+|password   |text       |NOT NULL   |
+|group_id   |integer    |---        |
+|message_id |integer    |---        |
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+##messages table
+|column     |type       |option          |
+|:--------- |:--------- |:-------------- |
+|user_id    |integer    |---             |
+|body       |text       |NOT NULL,index  |
+|image      |text       |        ---     |
+|group_id   |integer    |        ---     |
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+##groups table
+|column     |type       |option     |
+|:--------- |:--------- |:--------- |
+|name       |string     |---        |
+|user_id    |integer    |---        |
+|message_id |integer    |---        |
+
+
+##users_groups table
+|column     |type       |option     |
+|:--------- |:--------- |:--------- |
+|user_id    |integer    |---        |
+|group_id   |integer    |---        |
