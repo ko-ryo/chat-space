@@ -6,17 +6,28 @@
     %div{class:"left-content__user-name"}ryota
     %ul{class:"left-content__group"}
       %li{class:"left-content__group__name"}group1
-      %li{class:"left-content__group__message"} まだコメントはありません
+      %li{class:"left-content__group__message"} まだメッセージはありません
     %ul{class:"left-content__group"}
       %li{class:"left-content__group__name"}group2
-      %li{class:"left-content__group__message"} まだコメントはありません
+      %li{class:"left-content__group__message"} まだメッセージはありません
 
 
 
   %div{class:"right-content"}
     %div{class:"right-content__header"}
       %p{class:"right-content__header__group-name"}sampleグループ
+      %input{class:"right-content__header__buttom", type:"submit", value:"Edit",}
       %ul{class:"right-content__header__members"}
-        %li{class:"right-content__header__members__"}
+        %li{class:"right-content__header__members__member"}Members:
+        %li{class:"right-content__header__members__member-name"}ryota
+      %div{class:"right-content__header__border"}
     %div{class:"right-content__contents"}
+      %ul{class:"right-content__contents__messages"}
+        %li{class:"right-content__contents__messages__user-name"}ryota
+        %li{class:"right-content__contents__messages__date"}2017/04/03 06:27:27
+        %li{class:"right-content__contents__messages__each-message"}今日は雨だね。
+      %ul{class:"right-content__contents__messages"}
+        %li{class:"right-content__contents__messages__user-name"}kobayashi ryota
+        %li{class:"right-content__contents__messages__date"}2017/04/03 08:24:56
+        %li{class:"right-content__contents__messages__each-message"}晴れてきたあああああああああああああああああああああああああ！！
     %div{class:"right-content__message-form"}
