@@ -24,7 +24,30 @@
           padding: 0 20px;
           height: 105px;
           line-height: 105px;
+          position: relative;
+                &__icon{
+                position: absolute;
+                top: 65px;
+                left: 200px;
+                 }
         }
+
+        // &__user-name:after{
+        //   font-family: "FontAwesome";
+        //   content: "\f044";
+        //   position: absolute;
+        //   display: inline;
+        //   right: 70px;
+        // }
+
+        // &__user-name:after{
+        //   font-family: "FontAwesome";
+        //   content: "\f013";
+        //   position: absolute;
+        //   right: 40px;
+        //   display: inline;
+        // }
+
         &__group__name{
           padding: 0 20px;
           line-height: 20px;
@@ -43,11 +66,10 @@
 .right-content{
   height: 100vh;
   width: calc(100vw-300px);
-  background-color: #F5F5F5;
         &__header{
                 &__members__member{
                   padding-left: 40px;
-                      }
+                }
                 &__group-name{
                   color: #333333;
                   padding: 35px 0 15px 0;
@@ -80,14 +102,13 @@
         }
         &__contents{
           padding-left: 340px;
-
                 &__messages__user-name{
                   font-size: 16px;
                   font-weight: bold;
                   color: #434A54;
                   display: inline;
-                }
 
+                }
                 &__messages__date{
                   font-size: 12px;
                   color: #999999;
@@ -103,6 +124,7 @@
                   padding-bottom: 40px;
                 }
         }
+
         .right-content__footer{
           position: absolute;
           bottom: -24px;
@@ -118,9 +140,14 @@
                   padding-left: 10px;
                   border: none;
                   width: 84%;
+                }
+                div{
+                  position: absolute;
+                  right: 150px;
+                  top: 38px;
 
                 }
-                &__buttom{
+                  &__buttom{
                   border: none;
                   font-size: 16px;
                   font-weight: bold;

@@ -4,6 +4,9 @@
   .navber チャットグループが作成されました。
   .left-content
     .left-content__user-name ryota
+    %ul{class:"left-content__user-name__icon"}
+      %li{class:"fa fa-pencil-square-o"}
+      %li{class:"fa fa-cog"}
     %ul{class:"left-content__group"}
       %li{class:"left-content__group__name"}group1
       %li{class:"left-content__group__message"} まだメッセージはありません
@@ -32,4 +35,9 @@
         %li{class:"right-content__contents__messages__each-message"}晴れてきた!!
     .right-content__footer
       %input{class:"right-content__footer__message-form",placeholder:"type a message"}
+      %div{class:"fa fa-pencil-square-o"}
       %input{class:"right-content__footer__buttom", type:"submit", value:"Send",}
+
+
+
+
