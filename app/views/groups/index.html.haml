@@ -1,9 +1,9 @@
 
 
 %body
-  %div{class:"navber"} チャットグループが作成されました。
-  %div{class:"left-content"}
-    %div{class:"left-content__user-name"}ryota
+  .navber チャットグループが作成されました。
+  .left-content
+    .left-content__user-name ryota
     %ul{class:"left-content__group"}
       %li{class:"left-content__group__name"}group1
       %li{class:"left-content__group__message"} まだメッセージはありません
@@ -13,15 +13,15 @@
 
 
 
-  %div{class:"right-content"}
-    %div{class:"right-content__header"}
+  .right-content
+    .right-content__header
       %p{class:"right-content__header__group-name"}sampleグループ
       %input{class:"right-content__header__buttom", type:"submit", value:"Edit",}
       %ul{class:"right-content__header__members"}
         %li{class:"right-content__header__members__member"}Members:
         %li{class:"right-content__header__members__member-name"}ryota
-      %div{class:"right-content__header__border"}
-    %div{class:"right-content__contents"}
+      .right-content__header__border
+    .right-content__contents
       %ul{class:"right-content__contents__messages"}
         %li{class:"right-content__contents__messages__user-name"}ryota
         %li{class:"right-content__contents__messages__date"}2017/04/03 06:27:27
@@ -29,5 +29,7 @@
       %ul{class:"right-content__contents__messages"}
         %li{class:"right-content__contents__messages__user-name"}kobayashi ryota
         %li{class:"right-content__contents__messages__date"}2017/04/03 08:24:56
-        %li{class:"right-content__contents__messages__each-message"}晴れてきたあああああああああああああああああああああああああ！！
-    %div{class:"right-content__message-form"}
+        %li{class:"right-content__contents__messages__each-message"}晴れてきた!!
+    .right-content__footer
+      %input{class:"right-content__footer__message-form",placeholder:"type a message"}
+      %input{class:"right-content__footer__buttom", type:"submit", value:"Send",}
