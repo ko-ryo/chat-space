@@ -1,0 +1,98 @@
+
+.right-content {
+    height: 100vh;
+    width: calc(100vw-300px);
+        &__header {
+                &__members__member {
+                    padding-left: 40px;
+                }
+                &__group-name {
+                    color: #333333;
+                    font-size: 20px;
+                    padding: 35px 0 15px 340px;
+                }
+                ul li {
+                    color: #999999;
+                    display: inline;
+                    font-size: 12px;
+                }
+                &__buttom {
+                    background-color: $white;
+                    color: $blue;
+                    border: solid 1px $blue;
+                    font: {
+                        size: 16px;
+                        weight: bold;
+                    }
+                    position: absolute;
+                    top: 56px;
+                    right: 40px;
+                    height: 40px;
+                    width: 74px;
+                    padding: 0 20px;
+                }
+                &__border {
+                    border-bottom: thin solid #eeeeee;
+                    margin-bottom: 46px;
+                }
+        }
+        &__contents {
+            padding-left: 340px;
+                &__messages__user-name {
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: #434A54;
+                    display: inline;
+                }
+                &__messages__date {
+                    font-size: 12px;
+                    color: #999999;
+                    padding-left: 10px;
+                    display: inline;
+                }
+                &__messages__each-message {
+                    font-size: 14px;
+                    font: bold;
+                    color: #434A54;
+                    padding:{
+                        top: 10px;
+                        bottom: 40px;
+                    }
+                }
+        }
+        &__footer {
+            background-color: gray;
+            position: absolute;
+            display: inline;
+            bottom: -24px;
+            height: 90px;
+            width: 79%;
+                &__message-form {
+                    border: none;
+                    font-size: 16px;
+                    height: 50px;
+                    width: 84%;
+                    padding-left: 10px;
+                    margin: 20px 0 0 40px;
+                }
+                div {
+                  position: absolute;
+                  right: 150px;
+                  top: 38px;
+                }
+                &__buttom {
+                    border: none;
+                    background-color: $blue;
+                    color: $white;
+                    font:{
+                        size: 16px;
+                        weight: bold;
+                    }
+                    height: 50px;
+                    width: 74px;
+                    margin-left:15px;
+                    position: absolute;
+                    top: 20px;
+                }
+        }
+}
