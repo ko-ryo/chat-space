@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  get "groups" => "groups#index"
+  get "messages" => "messages#index"
 end
