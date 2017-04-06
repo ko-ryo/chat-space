@@ -14,10 +14,17 @@
             padding: 0 20px;
             position: relative;
                 &__icon {
-                    position: absolute;
-                    top: 65px;
-                    left: 200px;
                     display: block;
+                        li{
+                            position: absolute;
+                            top: 65px;
+                            left: 230px;
+                        }
+                        div{
+                            position: absolute;
+                            top: 65px;
+                            left: 200px;
+                        }
                 }
         }
         &__group__name {

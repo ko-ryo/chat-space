@@ -2,6 +2,8 @@
 .right-content {
     height: 100vh;
     width: calc(100vw-300px);
+    list-style:none;
+
         &__header {
                 &__members__member {
                     padding-left: 40px;
@@ -11,24 +13,28 @@
                     font-size: 20px;
                     padding: 35px 0 15px 340px;
                 }
+
                 ul li {
                     color: #999999;
                     display: inline;
                     font-size: 12px;
                 }
-                &__buttom {
+                &__button {
                     background-color: $white;
-                    color: $blue;
                     border: solid 1px $blue;
+                    color: $blue;
+                    display: block;
                     font: {
                         size: 16px;
                         weight: bold;
                     }
+                    line-height: 40px;
+                    text-align: center;
                     position: absolute;
                     top: 56px;
                     right: 40px;
+                    text-decoration: none;
                     height: 40px;
-                    width: 74px;
                     padding: 0 20px;
                 }
                 &__border {
@@ -80,7 +86,7 @@
                   right: 150px;
                   top: 34px;
                 }
-                &__buttom {
+                &__button {
                     border: none;
                     background-color: $blue;
                     color: $white;
