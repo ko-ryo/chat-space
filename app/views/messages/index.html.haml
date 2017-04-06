@@ -33,7 +33,8 @@
       %li.right-content__contents__messages__each-message 晴れてきた!!
   .right-content__footer
     %input{class:"right-content__footer__message-form",placeholder:"type a message"}
-    .li= link_to raw('<i class="fa fa-pencil-square-o"></i>'),"https://www.yahoo.co.jp/"
+    =link_to "https://www.yahoo.co.jp/" do
+      .i{class:"fa fa-pencil-square-o"}
     %input{class:"right-content__footer__button", type:"submit", value:"Send",}
 
 
