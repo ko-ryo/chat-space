@@ -33,6 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :production, :development do
   gem 'haml-rails'
+  gem 'font-awesome-rails'
 end
 
 group :development, :test do
