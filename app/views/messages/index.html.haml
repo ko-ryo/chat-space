@@ -3,8 +3,10 @@
 .left-content
   .left-content__user-name ryota
   %ul.left-content__user-name__icon
-    %li= link_to raw('<i class="fa fa-pencil-square-o"></i>'),"https://www.yahoo.co.jp/"
-    .li= link_to raw('<i class="fa fa-cog"></i>'),"https://www.yahoo.co.jp/"
+    =link_to "https://www.yahoo.co.jp/" do
+      %i{class:"fa fa-pencil-square-o"}
+    =link_to "https://www.yahoo.co.jp/" do
+      .i{class:"fa fa-cog"}
   %ul.left-content__group
     %li.left-content__group__name group1
     %li.left-content__group__message まだメッセージはありません
@@ -33,4 +35,6 @@
     %input{class:"right-content__footer__message-form",placeholder:"type a message"}
     .li= link_to raw('<i class="fa fa-pencil-square-o"></i>'),"https://www.yahoo.co.jp/"
     %input{class:"right-content__footer__button", type:"submit", value:"Send",}
+
+
 
