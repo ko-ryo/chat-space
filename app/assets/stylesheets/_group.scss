@@ -1,8 +1,9 @@
 .chat-group-form {
   width: 980px;
+  height: 400px;
   margin: 60px auto;
   padding: 40px;
-  background-color: #fff;
+  background-color: $white;
   border: 1px solid #ddd;
   border-radius: 5px;
   box-sizing: border-box;
@@ -13,7 +14,7 @@
     text-align: center;
   }
 
-  .chat-group-form__errors {
+  &__errors {
     margin: 30px 0;
     padding: 20px 40px;
     border: 1px solid #ddd;
@@ -42,7 +43,7 @@
   .chat-group-form__field {
     margin-top: 30px;
 
-    .chat-group-form__field--left {
+    &--left {
       float: left;
       width: 30%;
       padding-right: 20px;
@@ -50,7 +51,7 @@
       box-sizing: border-box;
     }
 
-    .chat-group-form__field--right {
+    &--right {
       float: right;
       width: 70%;
     }
@@ -77,20 +78,20 @@
     font-size: 14px;
     border-bottom: 1px solid #ddd;
 
-    .chat-group-user__name {
+    &__name {
       float: left;
     }
 
-    .chat-group-user__btn {
+    &__btn {
       float: right;
       display: inline-block;
       cursor: pointer;
 
-      &.chat-group-user__btn--add {
-        color: #38aef0;
+      &--add {
+        color: $blue;
       }
 
-      &.chat-group-user__btn--remove {
+      &--remove {
         color: #f05050;
       }
     }
@@ -99,8 +100,8 @@
   .chat-group-form__action-btn {
     display: inline-block;
     padding: 12px 20px;
-    color: #fff;
-    background-color: #38aef0;
+    color: $white;
+    background-color: $blue;
     border: 0;
   }
 }
