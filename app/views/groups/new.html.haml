@@ -1,0 +1,29 @@
+.chat-group-form
+  %h1 新規チャットグループ
+  .new_chat_group
+    = form_for(@group, url: new_group_path, method: :post ) do |f|
+      .chat-group-form__field.clearfix
+        .chat-group-form__field--left
+          .chat-group-form__label
+            = f.label :name, "グループ名"
+        .chat-group-form__field--right
+          .chat-group-form__input
+            = f.text_field :name, :class => "chat-group-form__input", value: "グループ名を入力してください"
+      .chat-group-form__field.clearfix
+        .chat-group-form__field--left
+          = f.label :member, "チャットメンバーを追加", :class => "chat-group-form__label"
+        .chat-group-form__field--right
+          .chat-group-form__input
+            = f.text_field :name, :class => "chat-group-form__input", value: "追加したいユーザー名を入力してください"
+          .user-search-result
+      /       .chat-group-form__search.clearfix.chat-group-form__field.clearfix        .chat-group-form__field--left
+      / /     .chat-group-form__label
+      / /       = f.label :member
+      / /     .chat-group-form__field--right
+      / /       #chat-group-users
+      / /         .chat-group-user.clearfix#chat-group-user-22
+      / /         %p.chat-group-user__name seo_kyohei
+      .chat-group-form__field.clearfix
+        .chat-group-form__field--left
+        .chat-group-form__field--right
+          = f.submit "Send",:class =>"chat-group-form__action-btn"

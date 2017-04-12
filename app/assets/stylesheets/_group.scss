@@ -43,7 +43,7 @@
   .chat-group-form__field {
     margin-top: 30px;
 
-    &--left {
+    .chat-group-form__field--left {
       float: left;
       width: 30%;
       padding-right: 20px;
@@ -51,14 +51,14 @@
       box-sizing: border-box;
     }
 
-    &--right {
+    .chat-group-form__field--right {
       float: right;
       width: 70%;
     }
 
     .chat-group-form__label {
       display: block;
-      line-height: 50px;
+      line-height: 70px;
       font-weight: bold;
       text-align: right;
     }
@@ -100,6 +100,7 @@
   .chat-group-form__action-btn {
     display: inline-block;
     padding: 12px 20px;
+    margin: 15px;
     color: $white;
     background-color: $blue;
     border: 0;
