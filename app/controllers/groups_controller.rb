@@ -5,5 +5,14 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
   end
-  # ビューファイルの表示
+
+  def create
+    Group.create(group_params)
+    redirect_to controller: :messages, action: :index
+  end
+
+  private
+    def group_params
+      params.require(:group).permit(:name)
+    end
 end
