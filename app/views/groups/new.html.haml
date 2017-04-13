@@ -11,6 +11,8 @@
             = f.text_field :name, :class => "chat-group-form__input", value: "グループ名を入力してください"
       .chat-group-form__field.clearfix
         .chat-group-form__field--left
+          = f.collection_check_boxes(:user_ids, User.all, :id, :name) do |b|
+            = b.label { b.check_box + b.text }
           = f.label :user_id, "チャットメンバーを追加", :class => "chat-group-form__label"
         .chat-group-form__field--right
           .chat-group-form__input
