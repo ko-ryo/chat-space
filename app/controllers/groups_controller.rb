@@ -1,6 +1,4 @@
 class GroupsController < ApplicationController
-  def edit
-  end
 
   def new
     @group = Group.new
@@ -8,6 +6,16 @@ class GroupsController < ApplicationController
 
   def create
     Group.create(group_params)
+    redirect_to :root
+  end
+
+  def edit
+    @group = Group.find(params[:id])
+  end
+
+  def update
+    group = Group.find(params[:id])
+    group.update(group_params)
     redirect_to :root
   end
 
