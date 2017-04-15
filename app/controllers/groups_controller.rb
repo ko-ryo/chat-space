@@ -15,8 +15,11 @@ class GroupsController < ApplicationController
 
   def update
     group = Group.find(params[:id])
-    group.update(group_params)
-    redirect_to :root
+    if group.update(group_params)
+      redirect_to :root, success: "編集が完了しました。"
+    else
+      redirect_to :action => "edit", warning: "編集に失敗しました。"
+    end
   end
 
   private
