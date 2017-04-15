@@ -14,7 +14,7 @@ class GroupsController < ApplicationController
       redirect_to :root, success: "グループ作成に成功しました。"
     else
       flash.now[:warning] = "グループ作成に失敗しました。"
-      render :action => "new"
+      render action: :new
     end
   end
 
@@ -26,7 +26,7 @@ class GroupsController < ApplicationController
       redirect_to :root, success: "編集が完了しました。"
     else
       flash.now[:warning] = "編集に失敗しました。"
-      render :action => "edit"
+      render action: :edit
     end
   end
 
