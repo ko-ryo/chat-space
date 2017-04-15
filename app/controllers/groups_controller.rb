@@ -10,8 +10,11 @@ class GroupsController < ApplicationController
   end
 
   def create
-    Group.create(group_params)
-    redirect_to :root
+    if Group.create(group_params)
+      redirect_to :root, success: "グループ作成に成功しました。"
+    else
+      render :action => "create", warning: "グループ作成に失敗しました。"
+    end
   end
 
   def edit
@@ -21,16 +24,16 @@ class GroupsController < ApplicationController
     if @group.update(group_params)
       redirect_to :root, success: "編集が完了しました。"
     else
-      redirect_to :action => "edit", warning: "編集に失敗しました。"
+      render :action => "edit", warning: "編集に失敗しました。"
     end
   end
 
   private
-    def group_params
-      params.require(:group).permit(:name, user_ids: [])
-    end
+  def group_params
+    params.require(:group).permit(:name, user_ids: [])
+  end
 
-    def set_group
-      @group = Group.find(params[:id])
-    end
+  def set_group
+    @group = Group.find(params[:id])
+  end
 end
