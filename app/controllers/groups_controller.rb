@@ -13,7 +13,8 @@ class GroupsController < ApplicationController
     if Group.create(group_params)
       redirect_to :root, success: "グループ作成に成功しました。"
     else
-      render :action => "create", warning: "グループ作成に失敗しました。"
+      flash.now[:warning] = "グループ作成に失敗しました。"
+      render :action => "new"
     end
   end
 
@@ -24,7 +25,8 @@ class GroupsController < ApplicationController
     if @group.update(group_params)
       redirect_to :root, success: "編集が完了しました。"
     else
-      render :action => "edit", warning: "編集に失敗しました。"
+      flash.now[:warning] = "編集に失敗しました。"
+      render :action => "edit"
     end
   end
 
