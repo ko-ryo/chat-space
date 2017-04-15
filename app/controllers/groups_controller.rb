@@ -1,8 +1,14 @@
 class GroupsController < ApplicationController
 
-  before_action :set_group, only: [:index, :edit, :update]
+  before_action :set_group, only: [:edit, :update, :show]
 
   def index
+    @group = current_user.group_ids[1]
+    @name = current_user.name
+  end
+
+  def show
+    @name = current_user.name
   end
 
   def new

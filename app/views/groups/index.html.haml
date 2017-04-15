@@ -1,11 +1,12 @@
 
 .left-content
-  .left-content__user-name #{current_user.name}
+  .left-content__user-name #{@name}
   %ul.left-content__user-name__icon
     =link_to "/groups/new" do
       %i{class:"fa fa-pencil-square-o"}
     =link_to "/users/edit" do
       .i{class:"fa fa-cog"}
+  / =render template: "groups/show"
   %ul.left-content__group
     %li.left-content__group__name group1
     %li.left-content__group__message まだメッセージはありません
@@ -16,7 +17,7 @@
 .right-content
   .right-content__header
     %p.right-content__header__group-name sampleグループ
-    %li= link_to " Edit","/groups/2/edit",:class => "right-content__header__button"
+    %li= link_to "Edit","/groups/#{@group}/edit",:class => "right-content__header__button"
     %ul.right-content__header__members
       %li.right-content__header__members__member Members:
       %li.right-content__header__members__member-name ryota
