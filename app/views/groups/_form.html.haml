@@ -13,22 +13,7 @@
           = f.label :user_id, "チャットメンバーを追加", :class => "chat-group-form__label"
           = f.collection_check_boxes(:user_ids, User.all, :id, :name) do |b|
             = b.label { b.check_box + b.text }
-      / .chat-group-form__field--right
-      /   .chat-group-form__input
-      /     = f.text_field :user_id, :class => "chat-group-form__input", value: "追加したいユーザー名を入力してください"
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
         = f.submit "Send",:class =>"chat-group-form__action-btn"
-
-/           .user-search-result
-/             = f.check_box()
-/ 後から追加する部分
-/         .chat-group-form__search.clearfix.chat-group-form__field.clearfix
-/         .chat-group-form__field--left
-/         .chat-group-form__label
-/           = f.label :member
-/           .chat-group-form__field--right
-/             #chat-group-users
-/               .chat-group-user.clearfix#chat-group-user-22
-/               %p.chat-group-user__name seo_kyohei

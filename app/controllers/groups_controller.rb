@@ -3,8 +3,7 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:edit, :update]
 
   def show
-    @ids = current_user.group_ids
-    @groups = Group.find(@ids)
+    @groups = current_user.groups
   end
 
   def new
