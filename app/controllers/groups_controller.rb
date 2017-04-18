@@ -1,9 +1,6 @@
 class GroupsController < ApplicationController
 
-  before_action :set_group, only: [:edit, :update,]
-
-  def index
-  end
+  before_action :set_group, only: [:edit, :update]
 
   def show
     @ids = current_user.group_ids
