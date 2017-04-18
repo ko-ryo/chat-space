@@ -3,7 +3,7 @@
 .right-content
   .right-content__header
     %p.right-content__header__group-name #{@group.name}
-    %li= link_to "Edit",edit_group_path(@group),:class => "right-content__header__button"
+    %li= link_to "Edit",edit_group_path(@group),class: "right-content__header__button"
     %ul.right-content__header__members
       %li.right-content__header__members__member Members:
       - @group.users.each do |user|
