@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170412022645) do
+ActiveRecord::Schema.define(version: 20170418095724) do
 
   create_table "groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string  "name"
+    t.string  "name",    default: "", null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_groups_on_user_id", using: :btree
   end
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 20170412022645) do
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_groups_users_on_group_id", using: :btree
     t.index ["user_id"], name: "index_groups_users_on_user_id", using: :btree
+  end
+
+  create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "body",       limit: 65535, null: false
+    t.text     "image",      limit: 65535
+    t.integer  "group_id"
+    t.integer  "user_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["group_id"], name: "index_messages_on_group_id", using: :btree
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -48,4 +59,6 @@ ActiveRecord::Schema.define(version: 20170412022645) do
   add_foreign_key "groups", "users"
   add_foreign_key "groups_users", "groups"
   add_foreign_key "groups_users", "users"
+  add_foreign_key "messages", "groups"
+  add_foreign_key "messages", "users"
 end

@@ -1,25 +1,13 @@
-
 .left-content
-  .left-content__user-name ryota
-  %ul.left-content__user-name__icon
-    =link_to "/groups/new" do
-      %i{class:"fa fa-pencil-square-o"}
-    =link_to "/users/edit" do
-      .i{class:"fa fa-cog"}
-  %ul.left-content__group
-    %li.left-content__group__name group1
-    %li.left-content__group__message まだメッセージはありません
-  %ul.left-content__group
-    %li.left-content__group__name group2
-    %li.left-content__group__message まだメッセージはありません
-
+  =render template: "groups/show"
 .right-content
   .right-content__header
-    %p.right-content__header__group-name sampleグループ
-    %li= link_to " Edit","https://www.yahoo.co.jp/",:class => "right-content__header__button"
+    %p.right-content__header__group-name #{@group.name}
+    %li= link_to "Edit",edit_group_path(@group),class: "right-content__header__button"
     %ul.right-content__header__members
       %li.right-content__header__members__member Members:
-      %li.right-content__header__members__member-name ryota
+      - @group.users.each do |user|
+        %li.right-content__header__members__member-name #{user.name}
     .right-content__header__border
   .right-content__contents
     %ul.right-content__contents__messages
@@ -32,9 +20,6 @@
       %li.right-content__contents__messages__each-message 晴れてきた!!
   .right-content__footer
     %input{class:"right-content__footer__message-form",placeholder:"type a message"}
-    =link_to "https://www.yahoo.co.jp/" do
+    = link_to "https://www.yahoo.co.jp/" do
       .i{class:"fa fa-pencil-square-o"}
     %input{class:"right-content__footer__button", type:"submit", value:"Send",}
-
-
-
