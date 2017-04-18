@@ -1,16 +1,13 @@
 class GroupsController < ApplicationController
 
-  before_action :set_group, only: [:edit, :update, :show]
+  before_action :set_group, only: [:edit, :update,]
 
   def index
-
   end
 
   def show
-    # @id = Group.find_by(id: params[:id])
     @ids = current_user.group_ids
     @groups = Group.find(@ids)
-    # @groups = current_user.find(params[:group_id])
   end
 
   def new
