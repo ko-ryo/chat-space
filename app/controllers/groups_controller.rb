@@ -3,12 +3,14 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:edit, :update, :show]
 
   def index
-    @group = current_user.group_ids[1]
-    @name = current_user.name
+
   end
 
   def show
-    @name = current_user.name
+    # @id = Group.find_by(id: params[:id])
+    @ids = current_user.group_ids
+    @groups = Group.find(@ids)
+    # @groups = current_user.find(params[:group_id])
   end
 
   def new
@@ -21,7 +23,7 @@ class GroupsController < ApplicationController
       redirect_to :root, success: "グループ作成に成功しました。"
     else
       flash.now[:warning] = "グループ作成に失敗しました。"
-      render action: :new
+      render :new
     end
   end
 
@@ -33,7 +35,7 @@ class GroupsController < ApplicationController
       redirect_to :root, success: "編集が完了しました。"
     else
       flash.now[:warning] = "編集に失敗しました。"
-      render action: :edit
+      render :edit
     end
   end
 

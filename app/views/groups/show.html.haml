@@ -1,37 +1,41 @@
-.left-content
-  .left-content__user-name #{@name}
-  %ul.left-content__user-name__icon
-    =link_to "/groups/new" do
-      %i{class:"fa fa-pencil-square-o"}
-    =link_to "/users/edit" do
-      .i{class:"fa fa-cog"}
-  / =render template: "groups/show"
-  %ul.left-content__group
-    %li.left-content__group__name group1
-    %li.left-content__group__message まだメッセージはありません
-  %ul.left-content__group
-    %li.left-content__group__name group2
-    %li.left-content__group__message まだメッセージはありません
 
-.right-content
-  .right-content__header
-    %p.right-content__header__group-name #{@group.name}
-    %li= link_to "Edit","/groups/#{@group.id}/edit",:class => "right-content__header__button"
-    %ul.right-content__header__members
-      %li.right-content__header__members__member Members:
-      %li.right-content__header__members__member-name ryota
-    .right-content__header__border
-  .right-content__contents
-    %ul.right-content__contents__messages
-      %li.right-content__contents__messages__user-name ryota
-      %li.right-content__contents__messages__date 2017/04/03 06:27:27
-      %li.right-content__contents__messages__each-message 今日は雨だね。
-    %ul.right-content__contents__messages
-      %li.right-content__contents__messages__user-name kobayashi ryota
-      %li.right-content__contents__messages__date 2017/04/03 08:24:56
-      %li.right-content__contents__messages__each-message 晴れてきた!!
-  .right-content__footer
-    %input{class:"right-content__footer__message-form",placeholder:"type a message"}
-    =link_to "https://www.yahoo.co.jp/" do
-      .i{class:"fa fa-pencil-square-o"}
-    %input{class:"right-content__footer__button", type:"submit", value:"Send",}
+
+.left-content
+  .left-content__user-name #{current_user.name}
+  %ul.left-content__user-name__icon
+    = link_to new_group_path do
+      %i{class:"fa fa-pencil-square-o"}
+    = link_to edit_user_registration_path do
+      .i{class:"fa fa-cog"}
+  - @groups.each do |group|
+    %ul.left-content__group
+      %li.left-content__group__name
+      = link_to "#{group.name}",group_messages_path(group), :class => "left-content__group__name"
+      %li.left-content__group__message まだメッセージはありません
+
+
+
+
+
+/ .right-content
+/   .right-content__header
+/     %p.right-content__header__group-name #{@group.name}
+/     %li= link_to "Edit", edit_group_path(@group), :class => "right-content__header__button"
+/     %ul.right-content__header__members
+/       %li.right-content__header__members__member Members:
+/       %li.right-content__header__members__member-name ryota
+/     .right-content__header__border
+/   .right-content__contents
+/     %ul.right-content__contents__messages
+/       %li.right-content__contents__messages__user-name ryota
+/       %li.right-content__contents__messages__date 2017/04/03 06:27:27
+/       %li.right-content__contents__messages__each-message 今日は雨だね。
+/     %ul.right-content__contents__messages
+/       %li.right-content__contents__messages__user-name kobayashi ryota
+/       %li.right-content__contents__messages__date 2017/04/03 08:24:56
+/       %li.right-content__contents__messages__each-message 晴れてきた!!
+/   .right-content__footer
+/     %input{class:"right-content__footer__message-form",placeholder:"type a message"}
+/     = link_to "https://www.yahoo.co.jp/" do
+/       .i{class:"fa fa-pencil-square-o"}
+/     %input{class:"right-content__footer__button", type:"submit", value:"Send",}
