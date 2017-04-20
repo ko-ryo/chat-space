@@ -8,11 +8,11 @@
       %li.right-content__header__members__member Members:
       - @group.users.each do |user|
         %li.right-content__header__members__member-name #{user.name}
-    .right-content__header__border
+      .right-content__header__border
   .right-content__contents
-    - @messages.each do |message|
+    - @group.messages.each do |message|
       %ul.right-content__contents__messages
-        %li.right-content__contents__messages__user-name #{current_user.name}
+        %li.right-content__contents__messages__user-name #{message.user.name}
         %li.right-content__contents__messages__date #{message.created_at}
         %li.right-content__contents__messages__each-message #{message.body}
   .right-content__footer
