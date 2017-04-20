@@ -9,12 +9,13 @@ class MessagesController < ApplicationController
   end
 
   def create
+    @groups = current_user.groups
     @message = Message.new(message_params)
     if @message.save
       redirect_to :back, success: "メッセージの送信に成功しました。"
     else
-      flash.now[:warning] = "メッセージの送信に失敗しました。"
-      render :new
+      flash.now[:notice] = "メッセージを入力してください。"
+      render :index
     end
   end
 
