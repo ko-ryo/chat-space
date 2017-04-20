@@ -10,15 +10,10 @@
         %li.right-content__header__members__member-name #{user.name}
       .right-content__header__border
   .right-content__contents
-    - @group.messages.each do |message|
-      %ul.right-content__contents__messages
-        %li.right-content__contents__messages__user-name #{message.user.name}
-        %li.right-content__contents__messages__date #{message.created_at}
-        %li.right-content__contents__messages__each-message #{message.body}
+    = render partial: "each_message", collection: @group.messages
   .right-content__footer
     = form_for @message, url: group_messages_path do |f|
       = f.text_field :body, value: "type a message", class: "right-content__footer__message-form"
       = button_tag type: "submit", class: "fa fa-pencil-square-o" do
         / %i.class= "fa fa-pencil-square-o"
       = f.submit "Send", class: "right-content__footer__button"
-
