@@ -5,7 +5,6 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     @messages = Message.includes(:group)
-    # @latest_message = @messages.where("created_at > ?").limit(1)
   end
 
   def create

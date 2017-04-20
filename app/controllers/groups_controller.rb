@@ -5,7 +5,6 @@ class GroupsController < ApplicationController
   def show
     @groups = current_user.groups
     @messages = Message.includes(:group)
-    # @latest_message = @messages.where("created_at > ?").limit(1)
   end
 
   def new
