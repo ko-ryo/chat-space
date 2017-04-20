@@ -3,14 +3,12 @@ class MessagesController < ApplicationController
   before_action :set_group, only: [:index, :create]
 
   def index
-    @groups = current_user.groups
     @message = Message.new
-    @messages = Message.all
+    @messages = Message.includes(:group)
   end
 
   def create
-    @groups = current_user.groups
-    @message = Message.new(message_params)
+    @message = current_user.messages.new(message_params)
     if @message.save
       redirect_to :back, success: "メッセージの送信に成功しました。"
     else
@@ -21,10 +19,11 @@ class MessagesController < ApplicationController
 
   private
   def message_params
-    params.require(:message).permit(:body).merge(group_id: @group.id, user_id: current_user.id)
+    params.require(:message).permit(:body).merge(group_id: @group.id)
   end
 
   def set_group
     @group = Group.find(params[:group_id])
+    @groups = current_user.groups.includes(:messages)
   end
 end
