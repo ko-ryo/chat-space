@@ -9,7 +9,7 @@
     %ul.left-content__group
       %li.left-content__group__name
       = link_to group.name, group_messages_path(group), class: "left-content__group__name"
-      - if group.messages.last.nil? == true && group.messages.empty? == true
+      - if group.messages.present? == false
         %li.left-content__group__message まだメッセージがありません
       - else
         %li.left-content__group__message #{group.messages.last.try(:body)}
