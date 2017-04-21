@@ -4,13 +4,14 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
-    @messages = Message.includes(:group)
+    @messages = Message.all
   end
 
   def create
     @message = current_user.messages.new(message_params)
     if @message.save
-      redirect_to :back, success: "メッセージの送信に成功しました。"
+      flash[:notice] = "メッセージの送信に成功しました。"
+      redirect_to action: :index
     else
       flash.now[:notice] = "メッセージを入力してください。"
       render :index

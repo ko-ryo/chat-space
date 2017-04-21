@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
 
   def show
     @groups = current_user.groups
-    @messages = Message.includes(:group)
+    @messages = Message.all
   end
 
   def new
