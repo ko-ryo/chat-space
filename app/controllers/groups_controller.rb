@@ -4,7 +4,6 @@ class GroupsController < ApplicationController
 
   def show
     @groups = current_user.groups
-    @messages = Message.all
   end
 
   def new
