@@ -10,7 +10,7 @@
         %li.right-content__header__members__member-name #{user.name}
       .right-content__header__border
   .right-content__contents
-    = render partial: "each_message", collection: @group.messages
+    = render partial: "each_message", collection: @messages
   .right-content__footer
     = form_for [@group, @message] do |f|
       = f.text_field :body, value: "type a message", class: "right-content__footer__message-form"

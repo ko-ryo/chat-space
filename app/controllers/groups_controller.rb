@@ -3,7 +3,7 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:edit, :update]
 
   def show
-    @groups = current_user.groups
+    @groups = current_user.groups.includes(:messages)
   end
 
   def new
