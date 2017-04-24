@@ -1,13 +1,13 @@
 FactoryGirl.define do
 
   factory :message do
-    id            "1"
-    body           "こんにちは！"
-    image          "tokyo.image"
-    group_id       "1"
-    user_id        "1"
-    created_at     "2017-04-19 11:30:39"
-    updated_at     "2017-04-19 11:30:40"
+    id {Faker::Number.digit}
+    body {Faker::Lorem.sentence}
+    image {Faker::Avatar.image("my-own-slug", "50x50", "jpg") }
+    group_id {Faker::Number.digit}
+    user_id {Faker::Number.digit}
+    created_at {Faker::Time.backward}
+    updated_at {Faker::Time.backward}
 
   end
 end
