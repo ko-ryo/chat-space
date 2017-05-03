@@ -5,18 +5,28 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     @messages = @group.messages.includes(:user)
+    @message.user = current_user
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @group.messages.includes(:user).map(&:to_api_json) }
+
+    end
   end
 
   def create
     @message = current_user.messages.new(message_params)
-    if @message.save
-        respond_to do |format|
-          format.html { redirect_to group_messages_path, notice: "メッセージを送信しました。" }
-          format.json { render json: @message}
+    @message.group = @group
+    @message.user = current_user
+    respond_to do |format|
+      if @message.save
+        format.html { redirect_to group_messages_path(@group), notice: "メッセージを送信しました。" }
+        format.json do
+          render json: @message.to_api_json
         end
-    else
-      flash.now[:notice] = "メッセージを入力してください。"
-      render :index
+      else
+        format.html { redirect_to group_messages_path(@group), notice: "メッセージを入力してください。" }
+        format.json { render json: @group.errors, status: :unprocessable_entity }
+      end
     end
   end
 

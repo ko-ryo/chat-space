@@ -12,7 +12,7 @@
   .right-content__contents
     = render partial: "each_message", collection: @messages
   .right-content__footer
-    = form_for [@group, @message] do |f|
+    = form_for [@group, @message], remote: true do |f|
       = f.text_field :body, value: "type a message", class: "right-content__footer__message-form"
       = button_tag type: "submit", class: "fa fa-pencil-square-o" do
         / %i.class= "fa fa-pencil-square-o"
