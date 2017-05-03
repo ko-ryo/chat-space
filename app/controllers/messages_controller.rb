@@ -7,7 +7,6 @@ class MessagesController < ApplicationController
     @messages = @group.messages.includes(:user)
     respond_to do |format|
       format.html { render :index }
-      format.json
     end
   end
 
