@@ -12,7 +12,7 @@ $(function(){
          message.body +
       '</ul>';
       return html;
-    }
+    };
 
 // フォーム送信の非同期化
   $('.right-content__footer').submit(function(e) {
