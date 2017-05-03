@@ -5,14 +5,14 @@ $(function(){
     var html =
       '<ul class="right-content__contents__messages">' +
       '<li class="right-content__contents__messages__user-name">' +
-       message.name +
+         message.name +
       '<li class="right-content__contents__messages__date">' +
-       message.time +
+         message.time +
       '<li class="right-content__contents__messages__each-message">' +
-       message.body +
+         message.body +
       '</ul>';
-      return html
-  }
+      return html;
+    }
 
 // フォーム送信の非同期化
   $('.right-content__footer').submit(function(e) {
