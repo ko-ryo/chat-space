@@ -11,15 +11,14 @@ $(function(){
       '<li class="right-content__contents__messages__each-message">' +
          message.body +
       '</ul>';
-      return html;
-    };
+    return html;
+  };
 
 // フォーム送信の非同期化
   $('.right-content__footer').submit(function(e) {
     var $form = $(this);
     e.preventDefault();
     var fd = new FormData($(this)[0]);
-    console.log(location.href)
     $.ajax(document.location.href + '.json',{
       method: 'POST',
       processData: false,
