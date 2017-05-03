@@ -7,6 +7,7 @@ class MessagesController < ApplicationController
     @messages = @group.messages.includes(:user)
     respond_to do |format|
       format.html { render :index }
+      format.json
     end
   end
 
@@ -17,9 +18,7 @@ class MessagesController < ApplicationController
     respond_to do |format|
       if @message.save
         format.html { redirect_to group_messages_path(@group), notice: "メッセージを送信しました。" }
-        format.json do
-          render json: @message.to_api_json
-        end
+        format.json
       else
         format.html { redirect_to group_messages_path(@group), notice: "メッセージを入力してください。" }
         format.json { render json: @group.errors, status: :unprocessable_entity }
