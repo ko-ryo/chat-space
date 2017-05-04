@@ -5,8 +5,10 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     @messages = @group.messages.includes(:user)
+    @message.user = current_user
     respond_to do |format|
       format.html { render :index }
+      format.json { render json: @group.messages.includes(:user).map(&:to_api_json) }
     end
   end
 
@@ -17,10 +19,12 @@ class MessagesController < ApplicationController
     respond_to do |format|
       if @message.save
         format.html { redirect_to group_messages_path(@group), notice: "メッセージを送信しました。" }
-        format.json
+        format.json do
+          render json: @message.to_api_json
+        end
       else
         format.html { redirect_to group_messages_path(@group), notice: "メッセージを入力してください。" }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
+        format.json
       end
     end
   end

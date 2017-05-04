@@ -14,27 +14,31 @@ $(function(){
          message.body +
       '</li>' +
       '</ul>';
-    return html;
-  };
+    return html
+  }
 
 // フォーム送信の非同期化
-  $('.right-content__footer').submit(function(e) {
+  $('#new_message').submit(function(e) {
     var $form = $(this);
     e.preventDefault();
     var fd = new FormData($(this)[0]);
-    $.ajax(document.location.href + '.json',{
+    $.ajax({
+      url: document.location.href + '.json',
       method: 'POST',
       processData: false,
       contentType: false,
       data: fd,
-      dataType: 'json',
-      success: function(json) {
-        var html = buildHTML(json);
-        $('.right-content__contents').append(html);
-      },
-      error: function(json) {
-        alert("エラーが発生しました");
-      }
+      dataType: 'json'
+    })
+    // console.log(json)
+    .done(function(json) {
+      var html = buildHTML(json);
+      $('.right-content__contents').append(html);
+      alert("通信に成功しました");
+
+    })
+    .fail(function() {
+      alert("エラーが発生しました");
     });
   });
 });
