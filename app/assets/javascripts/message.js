@@ -36,7 +36,7 @@ $(function(){
     .fail(function() {
       alert("エラーが発生しました");
     });
+    return false;
   });
-  return false;
 });
 
