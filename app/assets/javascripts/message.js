@@ -19,27 +19,24 @@ $(function(){
 
 // フォーム送信の非同期化
   $('#new_message').submit(function(e) {
-    var $form = $(this);
     e.preventDefault();
     var fd = new FormData($(this)[0]);
     $.ajax({
-      url: document.location.href + '.json',
-      method: 'POST',
-      processData: false,
-      contentType: false,
+      type: 'POST',
+      url: document.location.href,
       data: fd,
-      dataType: 'json'
+      dataType: 'json',
+      processData: false,
+      contentType: false
     })
-    // console.log(json)
-    .done(function(json) {
-      var html = buildHTML(json);
+    .done(function(data) {
+      var html = buildHTML(data.message);
       $('.right-content__contents').append(html);
-      alert("通信に成功しました");
-
     })
     .fail(function() {
       alert("エラーが発生しました");
     });
   });
+  return false;
 });
 
