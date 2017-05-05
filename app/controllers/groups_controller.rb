@@ -16,12 +16,12 @@ class GroupsController < ApplicationController
     respond_to do |format|
       if @group.save
         format.html {
-          redirect_to group_messages_path(@group)
+          redirect_to group_messages_path(@group),
           success: "グループ作成に成功しました。"
         }
         format.json {
-          render :index
-          status: :created
+          render :index,
+          status: :created,
           location: @group
         }
       else
@@ -44,12 +44,12 @@ class GroupsController < ApplicationController
     respond_to do |format|
       if @group.update(group_params)
         format.html {
-          redirect_to group_messages_path(@group)
+          redirect_to group_messages_path(@group),
           success: "グループを編集しました。"
         }
         format.json {
-          render :index
-          status: :ok
+          render :index,
+          status: :ok,
           location: @group
         }
       else
