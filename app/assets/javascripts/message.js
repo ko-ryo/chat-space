@@ -17,15 +17,6 @@ $(function(){
     return html
   }
 
-// フラッシュメッセージのHTMLを組み立て
-  // function buildSUCCESS(){
-  //   var html = `
-  //     <div class="navbar">
-  //       メッセージを送信しました。
-  //     </div>`
-  //   return html
-  // }
-
 // フォーム送信の非同期化
   $('#new_message').submit(function(e) {
     e.preventDefault();
@@ -41,8 +32,6 @@ $(function(){
     .done(function(data) {
       var html = buildHTML(data.message);
       $('.right-content__contents').append(html);
-      // var success = buildSUCCESS();
-      // $('.headder').append(success);
     })
     .fail(function() {
       alert("エラーが発生しました");
@@ -50,6 +39,3 @@ $(function(){
     return false;
   });
 });
-
-
-
