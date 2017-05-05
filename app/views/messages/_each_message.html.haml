@@ -1,4 +1,4 @@
 %ul.right-content__contents__messages
   %li.right-content__contents__messages__user-name #{each_message.user.name}
-  %li.right-content__contents__messages__date #{each_message.created_at}
+  %li.right-content__contents__messages__date #{each_message.created_at.to_s}
   %li.right-content__contents__messages__each-message #{each_message.body}
