@@ -1,21 +1,22 @@
 $(function(){
 
 // メッセージのHTMLを組み立て
-  function buildHTML(message) {
-    var html =
-      '<ul class="right-content__contents__messages">' +
-      '<li class="right-content__contents__messages__user-name">' +
-         message.name +
-      '</li>' +
-      '<li class="right-content__contents__messages__date">' +
-         message.time +
-      '</li>' +
-      '<li class="right-content__contents__messages__each-message">' +
-         message.body +
-      '</li>' +
-      '</ul>';
-    return html
-  }
+
+    function buildHTML(message) {
+      var html = `
+        <ul class="right-content__contents__messages">
+          <li class="right-content__contents__messages__user-name">
+            ${message.name}
+          </li>
+          <li class="right-content__contents__messages__date">
+            ${message.time}
+          </li>
+          <li class="right-content__contents__messages__each-message">
+            ${message.body}
+          </li>
+        </ul>`
+      return html
+    }
 
 // フォーム送信の非同期化
   $('#new_message').submit(function(e) {

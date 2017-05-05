@@ -9,14 +9,12 @@ class MessagesController < ApplicationController
 
   def create
     @message = current_user.messages.new(message_params)
-    @message.group = @group
-    @message.user = current_user
     respond_to do |format|
       if @message.save
         format.html { redirect_to group_messages_path(@group), notice: "メッセージを送信しました。" }
         format.json
       else
-        format.html { redirect_to group_messages_path(@group), notice: "メッセージを入力してください。" }
+        format.html { render :index }
         format.json
       end
     end
