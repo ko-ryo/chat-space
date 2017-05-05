@@ -12,24 +12,57 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-    if @group.save
-      redirect_to :root, success: "グループ作成に成功しました。"
-    else
-      flash.now[:warning] = "グループ作成に失敗しました。"
-      render :new
+
+    respond_to do |format|
+      if @group.save
+        format.html {
+          redirect_to group_messages_path(@group)
+          success: "グループ作成に成功しました。"
+        }
+        format.json {
+          render :index
+          status: :created
+          location: @group
+        }
+      else
+        format.html { render :new }
+        format.json { render json: @group.errors, status: :unprocessable_entity }
+      end
     end
+        # if @group.save
+    #   redirect_to :root, success: "グループ作成に成功しました。"
+    # else
+    #   flash.now[:warning] = "グループ作成に失敗しました。"
+    #   render :new
+    # end
   end
 
   def edit
   end
 
   def update
-    if @group.update(group_params)
-      redirect_to :root, success: "編集が完了しました。"
-    else
-      flash.now[:warning] = "編集に失敗しました。"
-      render :edit
+    respond_to do |format|
+      if @group.update(group_params)
+        format.html {
+          redirect_to group_messages_path(@group)
+          success: "グループを編集しました。"
+        }
+        format.json {
+          render :index
+          status: :ok
+          location: @group
+        }
+      else
+        format.html { render :edit }
+        format.json { render json: @group.errors, status: :unprocessable_entity }
+      end
     end
+    # if @group.update(group_params)
+    #   redirect_to :root, success: "編集が完了しました。"
+    # else
+    #   flash.now[:warning] = "編集に失敗しました。"
+    #   render :edit
+    # end
   end
 
   private
