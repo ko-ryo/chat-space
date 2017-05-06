@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
 
-  before_action :set_group, only: [:edit, :update]
+  before_action :set_group, only: [:show, :edit, :update]
 
   def show
     @groups = current_user.groups.includes(:messages)
@@ -8,24 +8,28 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
+    @group.users << current_user
   end
 
   def create
     @group = Group.new(group_params)
-
     respond_to do |format|
       if @group.save
+        # binding.pry
         format.html {
-          redirect_to group_messages_path(@group),
+          redirect_to group_path(@group),
           success: "グループ作成に成功しました。"
         }
         format.json {
-          render :index,
+          render :show,
           status: :created,
           location: @group
         }
       else
-        format.html { render :new }
+        format.html {
+          redirect_to new_group_path(@group)
+          flash.now[:warning] = "グループ名を入力してください。"
+        }
         format.json { render json: @group.errors, status: :unprocessable_entity }
       end
     end
@@ -44,11 +48,11 @@ class GroupsController < ApplicationController
     respond_to do |format|
       if @group.update(group_params)
         format.html {
-          redirect_to group_messages_path(@group),
+          redirect_to group_path(@group),
           success: "グループを編集しました。"
         }
         format.json {
-          render :index,
+          render :show,
           status: :ok,
           location: @group
         }
