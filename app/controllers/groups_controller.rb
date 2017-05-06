@@ -15,7 +15,6 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     respond_to do |format|
       if @group.save
-        # binding.pry
         format.html {
           redirect_to group_path(@group),
           success: "グループ作成に成功しました。"
@@ -27,18 +26,12 @@ class GroupsController < ApplicationController
         }
       else
         format.html {
-          redirect_to new_group_path(@group)
+          render :new,
           flash.now[:warning] = "グループ名を入力してください。"
         }
         format.json { render json: @group.errors, status: :unprocessable_entity }
       end
     end
-        # if @group.save
-    #   redirect_to :root, success: "グループ作成に成功しました。"
-    # else
-    #   flash.now[:warning] = "グループ作成に失敗しました。"
-    #   render :new
-    # end
   end
 
   def edit
@@ -61,12 +54,6 @@ class GroupsController < ApplicationController
         format.json { render json: @group.errors, status: :unprocessable_entity }
       end
     end
-    # if @group.update(group_params)
-    #   redirect_to :root, success: "編集が完了しました。"
-    # else
-    #   flash.now[:warning] = "編集に失敗しました。"
-    #   render :edit
-    # end
   end
 
   private
