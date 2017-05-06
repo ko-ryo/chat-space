@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
 
-  before_action :set_group, only: [:edit, :update]
+  before_action :set_group, only: [:show, :edit, :update]
 
   def show
     @groups = current_user.groups.includes(:messages)
@@ -8,14 +8,15 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
+    @group.users << current_user
   end
 
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to :root, success: "グループ作成に成功しました。"
+       redirect_to group_path(@group), success: "グループ作成に成功しました。"
     else
-      flash.now[:warning] = "グループ作成に失敗しました。"
+      flash.now[:warning] = "グループ名を入力してください。"
       render :new
     end
   end
@@ -25,9 +26,9 @@ class GroupsController < ApplicationController
 
   def update
     if @group.update(group_params)
-      redirect_to :root, success: "編集が完了しました。"
+       redirect_to group_path(@group), success: "グループを編集しました。"
     else
-      flash.now[:warning] = "編集に失敗しました。"
+      flash.now[:warning] = "グループ名を入力してください。"
       render :edit
     end
   end
