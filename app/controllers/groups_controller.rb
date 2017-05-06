@@ -13,18 +13,11 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-    respond_to do |format|
-      if @group.save
-        format.html {
-          redirect_to group_path(@group),
-          success: "グループ作成に成功しました。"
-        }
-      else
-        format.html {
-          render :new,
-          flash.now[:warning] = "グループ名を入力してください。"
-        }
-      end
+    if @group.save
+       redirect_to group_path(@group), success: "グループ作成に成功しました。"
+    else
+      flash.now[:warning] = "グループ名を入力してください。"
+      render :new
     end
   end
 
@@ -32,15 +25,11 @@ class GroupsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @group.update(group_params)
-        format.html {
-          redirect_to group_path(@group),
-          success: "グループを編集しました。"
-        }
-      else
-        format.html { render :edit }
-      end
+    if @group.update(group_params)
+       redirect_to group_path(@group), success: "グループを編集しました。"
+    else
+      flash.now[:warning] = "グループ名を入力してください。"
+      render :edit
     end
   end
 
