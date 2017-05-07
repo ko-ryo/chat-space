@@ -4,6 +4,4 @@
   %li.right-content__contents__messages__each-message #{each_message.body}
   %p.chat-message__body
     - if each_message.image?
-      %br
       = image_tag(each_message.image.to_s)
-      / = each_message.image.to_s

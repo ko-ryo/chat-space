@@ -2,6 +2,12 @@ $(function(){
 
 // メッセージのHTMLを組み立て
   function buildHTML(message) {
+    if (message.image_url) {
+      var insertImage = '<br><img src="' + message.image_url + '">';
+    } else {
+      var insertImage = '';
+    }
+
     var html = `
       <ul class="right-content__contents__messages">
         <li class="right-content__contents__messages__user-name">
@@ -12,6 +18,7 @@ $(function(){
         </li>
         <li class="right-content__contents__messages__each-message">
           ${message.body}
+          ${insertImage}
         </li>
       </ul>`
     return html
