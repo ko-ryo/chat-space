@@ -33,6 +33,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'fog'
+gem 'dotenv-rails'
 
 group :production, :development do
   gem 'haml-rails'
