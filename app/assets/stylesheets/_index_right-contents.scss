@@ -102,3 +102,16 @@
                 }
         }
 }
+.chat-footer__file {
+      position: absolute;
+      top: 35px;
+      right: 140px;
+      display: inline-block;
+      width: 40px;
+      text-align: center;
+      cursor: pointer;
+
+      input {
+        display: none;
+      }
+    }
