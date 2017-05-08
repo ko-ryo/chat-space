@@ -35,6 +35,9 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'fog'
 gem 'fog-aws'
+group :production do
+  gem 'unicorn'
+end
 
 group :production, :development do
   gem 'haml-rails'
