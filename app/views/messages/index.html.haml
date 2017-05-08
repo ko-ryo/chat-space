@@ -14,6 +14,7 @@
   .right-content__footer
     = form_for [@group, @message] do |f|
       = f.text_area :body, row: 1, placeholder: 'type a message',class: "right-content__footer__message-form"
-      = button_tag type: "submit", class: "fa fa-pencil-square-o" do
-        / %i.class= "fa fa-pencil-square-o"
+      %label.chat-footer__file
+        = f.file_field :image
+        %i.fa.fa-image
       = f.submit "Send", class: "right-content__footer__button"
