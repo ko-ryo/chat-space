@@ -1,5 +1,10 @@
 $(function(){
 
+// image添付時にメッセージの自動更新機能
+  $('#message_image').on('change', function(){
+    $(this).parents('form#new_message').submit();
+  });
+
 // メッセージのHTMLを組み立て
   function buildHTML(message) {
     if (message.image_url) {
@@ -45,24 +50,4 @@ $(function(){
     });
     return false;
   });
-
-  // if (document.location.href.match(/\/groups\/\d+\/messages/)) {
-  //   setInterval(function() {
-  //     $.ajax({
-  //       url: document.location.href,
-  //       type: 'GET',
-  //       dataType: 'json'
-  //     })
-  //     .done(function(json) {
-  //       var html = '';
-  //       json.forEach(function(json) {
-  //         var html = buildHTML(json.message);
-  //       });
-  //       $('.right-content__contents').append(html);
-  //     })
-  //     .fail(function(json) {
-  //       alert('エラーが発生しました');
-  //     });
-  //   }, 10 * 1000);
-  // }
 });
