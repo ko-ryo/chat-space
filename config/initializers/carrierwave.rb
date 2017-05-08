@@ -1,18 +1,16 @@
-# Dotenv.load
-# CarrierWave.configure do |config|
-#   config.fog_credentials = {
-#     provider: 'AWS',
-#     aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-#     aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-#     region: ENV['AWS_REGION'],
-#     path_style: true
-#   }
-#   config.fog_public     = true # public-read
+require 'dotenv'
+Dotenv.load
 
-#   config.remove_previously_stored_files_after_update = false
+CarrierWave.configure do |config|
+  config.fog_provider = 'fog'
+  config.fog_credentials = {
+    provider: 'AWS',
+    aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+    aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+    region: ENV['AWS_REGION']
+  }
 
-#   config.fog_directory = ENV['AWS_S3_BUCKET']
-#   config.asset_host = ENV['AWS_S3_URL']
-
-# end
-# CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
+  config.fog_directory = ENV['AWS_S3_BUCKET']
+  config.cache_storage = :fog
+  config.asset_host = ENV['S3_ASSET_HOST'] + '/' + ENV['AWS_S3_BUCKET']
+end

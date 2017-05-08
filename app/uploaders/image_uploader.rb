@@ -1,26 +1,26 @@
 class ImageUploader < CarrierWave::Uploader::Base
 
-  # if Rails.env.development?
-  #   storage :fog
-  # elsif Rails.env.test?
-  #   storage :file
-  # else
-  #   storage :fog
+  include CarrierWave::RMagick
+
+  if Rails.env.development?
+    storage :fog
+  elsif Rails.env.test?
+    storage :file
+  else
+    storage :fog
+  end
+
+  # def store_dir
+  #   "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   # end
 
-  def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  end
-
-  def extension_whitelist
-    %w(png jpg)
-  end
+  # def extension_whitelist
+  #   %w(png jpg)
+  # end
 
   # def filename
   #   original_filename if original_filename
   # end
-
-  include CarrierWave::RMagick
 
   process :resize_to_limit => [200, 200]
 
@@ -43,7 +43,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  # storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
