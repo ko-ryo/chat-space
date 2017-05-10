@@ -2,6 +2,10 @@ class GroupsController < ApplicationController
 
   before_action :set_group, only: [:show, :edit, :update]
 
+  def index
+    @groups = current_user.groups
+  end
+
   def show
     @groups = current_user.groups.includes(:messages)
   end

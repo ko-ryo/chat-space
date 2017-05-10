@@ -12,8 +12,8 @@
 
 ActiveRecord::Schema.define(version: 20170418095724) do
 
-  create_table "groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string  "name",    default: "", null: false
+  create_table "Groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string  "name"
     t.integer "user_id"
     t.index ["user_id"], name: "index_groups_on_user_id", using: :btree
   end
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20170418095724) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "groups", "users"
+  add_foreign_key "Groups", "users"
   add_foreign_key "groups_users", "groups"
   add_foreign_key "groups_users", "users"
   add_foreign_key "messages", "groups"
