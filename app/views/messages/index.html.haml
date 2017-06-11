@@ -13,7 +13,7 @@
     = render partial: "each_message", collection: @messages
   .right-content__footer
     = form_for [@group, @message] do |f|
-      = f.text_area :body, row: 1, placeholder: 'type a message',class: "right-content__footer__message-form"
+      = f.text_field :body, row: 1, placeholder: 'type a message',class: "right-content__footer__message-form"
       %label.chat-footer__file
         = f.file_field :image
         %i.fa.fa-image

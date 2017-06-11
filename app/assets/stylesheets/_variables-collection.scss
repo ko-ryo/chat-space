@@ -2,3 +2,10 @@
 $blue: #38AEF0;
 $white: #fff;
 $red: #d65f4c;
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+

@@ -5,6 +5,11 @@ $(function(){
     $(this).parents('form#new_message').submit();
   });
 
+// 自動スクロール
+// function scrollToBottom() {
+//   $('.chat-body').scrollTop( $('.chat-messages').height() );
+// }
+
 // メッセージのHTMLを組み立て
   function buildHTML(message) {
     if (message.image_url) {
